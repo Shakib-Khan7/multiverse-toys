@@ -1,9 +1,51 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Heroes from '../../components/Heroes';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
+import { useLoaderData } from 'react-router-dom';
+import Toys from '../../components/Toys';
 
 
 const Home = () => {
+
+    const toys = useLoaderData()
+    console.log(toys);
+
+    const [alltoys,setAllToys] = useState(toys)
+
+    const handleMcu = () =>{
+        fetch(`http://localhost:5000/toys?sub_category=MCU`)
+        .then(res=>res.json())
+        .then(data=>{
+            setAllToys(data)
+            console.log(data);
+        })
+    }
+    const handleDC = () =>{
+        fetch(`http://localhost:5000/toys?sub_category=DC`)
+        .then(res=>res.json())
+        .then(data=>{
+            setAllToys(data)
+            console.log(data);
+        })
+    }
+    const handleStarWars = () =>{
+        fetch(`http://localhost:5000/toys?sub_category=Star+Wars`)
+        .then(res=>res.json())
+        .then(data=>{
+            setAllToys(data)
+            console.log(data);
+        })
+    }
+
+
+
+
+
+
+
+
+
+    
     return (
         <div className=''>
             <div className='relative mx-auto' >
@@ -33,10 +75,11 @@ const Home = () => {
             <div className='w-5/6 mx-auto mt-20'>
                 <Tabs>
                     <TabList className='flex'>
-                        <Tab className='btn btn-outline btn-success w-32'>MCU</Tab>
-                        <Tab className='btn btn-outline btn-warning ml-4 w-32'>DC</Tab>
-                        <Tab className='btn btn-outline btn-error ml-4 w-32'>Star Wars</Tab>
+                        <Tab onClick={handleMcu} className='btn btn-outline btn-success w-32'>MCU</Tab>
+                        <Tab onClick={handleDC} className='btn btn-outline btn-warning ml-4 w-32'>DC</Tab>
+                        <Tab onClick={handleStarWars} className='btn btn-outline btn-error ml-4 w-32'>Star Wars</Tab>
                     </TabList>
+                    <hr />
 
                     <TabPanel>
                         <h2>mcu content</h2>
@@ -49,6 +92,16 @@ const Home = () => {
                     </TabPanel>
                 </Tabs>
             </div>
+
+            <div className='w-5/6 mx-auto grid grid-cols-3'>
+                {alltoys.map(toy=><Toys
+                 key={toy._id}
+                 toy = {toy}
+                 
+                 ></Toys>)}
+            </div>
+
+
 
 
 
