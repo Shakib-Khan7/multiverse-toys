@@ -8,8 +8,8 @@
         "sub_category": "MCU",
         "price": 299.99,
         "rating": 4.8,
-        "available quantity": 15,
-        "detail description": "The final suit of Iron Man from Avengers: Endgame, featuring advanced nanotechnology and a sleek design."
+        "available_quantity": 15,
+        "detail_description": "The final suit of Iron Man from Avengers: Endgame, featuring advanced nanotechnology and a sleek design."
     },
     {
         
@@ -20,8 +20,8 @@
         "sub_category": "DC",
         "price": 249.99,
         "rating": 4.7,
-        "available quantity": 10,
-        "detail description": "This Batman figure is based on Christian Bale’s portrayal of the Dark Knight in The Dark Knight Trilogy."
+        "available_quantity": 10,
+        "detail_description": "This Batman figure is based on Christian Bale’s portrayal of the Dark Knight in The Dark Knight Trilogy."
     },
     {
         
@@ -32,8 +32,8 @@
         "sub_category": "Star Wars",
         "price": 199.99,
         "rating": 4.9,
-        "available quantity": 20,
-        "detail description": "Luke Skywalker in his iconic black Jedi Knight outfit, complete with lightsaber and detailed accessories."
+        "available_quantity": 20,
+        "detail_description": "Luke Skywalker in his iconic black Jedi Knight outfit, complete with lightsaber and detailed accessories."
     },
     {
         
@@ -44,8 +44,8 @@
         "sub_category": "MCU",
         "price": 279.99,
         "rating": 4.9,
-        "available quantity": 8,
-        "detail description": "Steve Rogers as Captain America with Mjolnir, featuring incredible detail and articulation."
+        "available_quantity": 8,
+        "detail_description": "Steve Rogers as Captain America with Mjolnir, featuring incredible detail and articulation."
     },
     {
         
@@ -56,8 +56,8 @@
         "sub_category": "DC",
         "price": 229.99,
         "rating": 4.8,
-        "available quantity": 12,
-        "detail description": "Wonder Woman in her Golden Eagle armor, ready to take on any challenge with grace and strength."
+        "available_quantity": 12,
+        "detail_description": "Wonder Woman in her Golden Eagle armor, ready to take on any challenge with grace and strength."
     },
     {
         
@@ -68,8 +68,8 @@
         "sub_category": "Star Wars",
         "price": 249.99,
         "rating": 4.9,
-        "available quantity": 18,
-        "detail description": "Darth Vader in his iconic black armor, complete with a red lightsaber and intricate detailing."
+        "available_quantity": 18,
+        "detail_description": "Darth Vader in his iconic black armor, complete with a red lightsaber and intricate detailing."
     },
     {
         
@@ -80,8 +80,8 @@
         "sub_category": "MCU",
         "price": 269.99,
         "rating": 4.8,
-        "available quantity": 5,
-        "detail description": "Thor in his gladiator outfit, wielding his powerful weapons and ready for battle."
+        "available_quantity": 5,
+        "detail_description": "Thor in his gladiator outfit, wielding his powerful weapons and ready for battle."
     },
     {
         
@@ -92,8 +92,8 @@
         "sub_category": "DC",
         "price": 299.99,
         "rating": 4.7,
-        "available quantity": 7,
-        "detail description": "Superman as portrayed by Henry Cavill, featuring the iconic red and blue suit with the 'S' emblem."
+        "available_quantity": 7,
+        "detail_description": "Superman as portrayed by Henry Cavill, featuring the iconic red and blue suit with the 'S' emblem."
     },
     {
         
@@ -104,8 +104,8 @@
         "sub_category": "Star Wars",
         "price": 179.99,
         "rating": 4.9,
-        "available quantity": 25,
-        "detail description": "The wise and powerful Jedi Master Yoda, complete with his walking stick and lightsaber."
+        "available_quantity": 25,
+        "detail_description": "The wise and powerful Jedi Master Yoda, complete with his walking stick and lightsaber."
     },
     {
         
@@ -116,7 +116,7 @@
         "sub_category": "DC",
         "price": 199.99,
         "rating": 4.8,
-        "available quantity": 9,
-        "detail description": "The Joker as depicted in the iconic graphic novel 'The Killing Joke,' with his signature purple suit and twisted grin."
+        "available_quantity": 9,
+        "detail_description": "The Joker as depicted in the iconic graphic novel 'The Killing Joke,' with his signature purple suit and twisted grin."
     }
 ]

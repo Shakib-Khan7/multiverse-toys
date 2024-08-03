@@ -71,46 +71,52 @@ const Home = () => {
                 <Heroes></Heroes>
             </div>
 
+            <div className='w-5/6 mx-auto'>
+                    <h2 className='font-semibold text-3xl italic'>Shop By Category</h2>
+            </div>
 
-            <div className='w-5/6 mx-auto mt-20'>
+
+
+
+
+
+
+
+            <div className='w-5/6 mx-auto mt-10'>
                 <Tabs>
                     <TabList className='flex'>
-                        <Tab onClick={handleMcu} className='btn btn-outline btn-success w-32'>MCU</Tab>
+                        <Tab onClick={()=>setAllToys(toys)} className='btn btn-outline w-32'>All</Tab>
+                        <Tab onClick={handleMcu} className='btn btn-outline btn-success w-32 ml-4'>MCU</Tab>
                         <Tab onClick={handleDC} className='btn btn-outline btn-warning ml-4 w-32'>DC</Tab>
                         <Tab onClick={handleStarWars} className='btn btn-outline btn-error ml-4 w-32'>Star Wars</Tab>
                     </TabList>
-                    <hr />
+                   
+                    <hr  />
+                    
+                    
 
                     <TabPanel>
-                        <h2>mcu content</h2>
+                       
                     </TabPanel>
                     <TabPanel>
-                        <h2>dc content</h2>
+                       
                     </TabPanel>
                     <TabPanel>
-                        <h2>starwars content</h2>
+                       
+                    </TabPanel>
+                    <TabPanel>
+                       
                     </TabPanel>
                 </Tabs>
             </div>
 
-            <div className='w-5/6 mx-auto grid grid-cols-3'>
+            <div className='w-5/6 mx-auto grid grid-cols-3 gap-10'>
                 {alltoys.map(toy=><Toys
                  key={toy._id}
                  toy = {toy}
                  
                  ></Toys>)}
             </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 
