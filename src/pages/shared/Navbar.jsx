@@ -40,6 +40,13 @@ const Navbar = () => {
         </Link>
         
         </li>}
+        {user && 
+        <li>
+        <Link to='/myToys'>
+            My Toys
+        </Link>
+        
+        </li>}
         {
             !user && <li>
             <Link to='/login'>
