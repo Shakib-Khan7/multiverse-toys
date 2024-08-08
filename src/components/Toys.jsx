@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { AuthContext } from '../AuthProvider/AuthProvider';
+import { useNavigate } from 'react-router-dom';
 
 const Toys = ({toy}) => {
-    const {img,name,price,rating,seller_name,seller_email,available_quantity,detail_description,_id} = toy
+    const {img,name,price,rating,seller_name,seller_email,available_quantity,detail_description,_id} = toy;
+    const {user} = useContext(AuthContext)
+    const navigate = useNavigate()
+    const goTologin = () =>{
+        return navigate('/login')
+    }
     return (
         <div>
             <div className="card card-compact bg-base-100 w-96 shadow-xl">
@@ -17,7 +24,7 @@ const Toys = ({toy}) => {
                     <p>Rating : {rating}</p>
                     <div className="card-actions justify-end">
 
-                    <button className="btn btn-outline btn-primary" onClick={() => document.getElementById(`${_id}`).showModal()}>View Details</button>
+                    <button className="btn btn-outline btn-primary" onClick={user ? () => document.getElementById(`${_id}`).showModal() : goTologin }>View Details</button>
                 <dialog id={_id} className="modal">
                     <div className="modal-box w-11/12 max-w-5xl">
                         <div>

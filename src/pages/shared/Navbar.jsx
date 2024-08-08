@@ -4,6 +4,8 @@ import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Navbar = () => {
     const {user,logOut} = useContext(AuthContext)
+
+    
     
 
     const handleLogOut = () =>{
@@ -22,11 +24,11 @@ const Navbar = () => {
             Home
         </Link>
         </li>
-        {user&& <li>
+         <li>
         <Link to='/allToys'>
             All toys
         </Link>
-        </li>}
+        </li>
         <li>
         <Link>
             Blogs
@@ -94,9 +96,11 @@ const Navbar = () => {
                         {options}
                     </ul>
                 </div>
-                <div className="navbar-end">
-                    <a className="btn">Button</a>
-                </div>
+                {user&& <div className="navbar-end">
+                    <div className='w-11 rounded-full hover:cursor-pointer border  tooltip tooltip-bottom ' data-tip={user.displayName? user.displayName : user.email}>
+                        <img className='rounded-full' src="https://i.ibb.co/KxBgdF2/ironman.jpg" alt="" />
+                    </div>
+                </div>}
             </div>
         </div>
     );
