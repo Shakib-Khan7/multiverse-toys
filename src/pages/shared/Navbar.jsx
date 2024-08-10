@@ -24,17 +24,7 @@ const Navbar = () => {
             Home
         </Link>
         </li>
-         <li>
-        <Link to='/allToys'>
-            All toys
-        </Link>
-        </li>
-        <li>
-        <Link>
-            Blogs
-        </Link>
-        
-        </li>
+
         {user && 
         <li>
         <Link to='/addToy'>
@@ -49,6 +39,20 @@ const Navbar = () => {
         </Link>
         
         </li>}
+
+
+         <li>
+        <Link to='/allToys'>
+            All toys
+        </Link>
+        </li>
+        <li>
+        <Link>
+            Blogs
+        </Link>
+        
+        </li>
+       
         {
             !user && <li>
             <Link to='/login'>
@@ -100,6 +104,9 @@ const Navbar = () => {
                     <div className='w-11 rounded-full hover:cursor-pointer border  tooltip tooltip-bottom ' data-tip={user.displayName? user.displayName : user.email}>
                         <img className='rounded-full' src="https://i.ibb.co/KxBgdF2/ironman.jpg" alt="" />
                     </div>
+                </div>}
+                {!user&& <div className="navbar-end mr-10">
+                    
                 </div>}
             </div>
         </div>

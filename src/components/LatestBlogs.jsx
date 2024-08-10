@@ -7,10 +7,10 @@ const LatestBlogs = () => {
             <h2 className='text-2xl font-mono'>Upcoming cinemas of your favourite heroes</h2>
             <hr />
             </div>
-            <div className='grid grid-cols-3 w-5/6 mx-auto '>
+            <div className='grid  grid-cols-1 md:grid-cols-3 w-5/6 mx-auto '>
             
             <a href="https://www.youtube.com/watch?v=oTXrl8H6luI" target="_blank" rel="noopener noreferrer">
-            <div className="card bg-base-100 w-96 shadow-xl hover:scale-105">
+            <div className="card bg-base-100 w-80 md:w-96 shadow-xl hover:scale-105">
                 <figure>
                     <img className='h-64 w-96'
                         src="https://i.ibb.co/6ZG26v0/dc.jpg"
@@ -31,7 +31,7 @@ const LatestBlogs = () => {
             </div>
             </a>
             <a href="https://www.youtube.com/watch?v=8Qn_spdM5Zg" target="_blank" rel="noopener noreferrer">
-            <div className="card bg-base-100 w-96 shadow-xl hover:scale-105">
+            <div className="card bg-base-100 w-80 md:w-96 shadow-xl hover:scale-105">
                 <figure>
                     <img className='h-64'
                         src="https://i.ibb.co/LPMRdnz/sw.jpg"
@@ -52,7 +52,7 @@ const LatestBlogs = () => {
             </div>
             </a>
             <a href="https://www.youtube.com/watch?v=TcMBFSGVi1c" target="_blank" rel="noopener noreferrer">
-            <div className="card bg-base-100 w-96 shadow-xl hover:scale-105">
+            <div className="card bg-base-100 w-80 md:w-96 shadow-xl hover:scale-105">
                 <figure>
                     <img className='h-64'
                         src="https://i.ibb.co/jZR018p/marvel.jpg"

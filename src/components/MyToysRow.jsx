@@ -98,6 +98,7 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
                     <div className="modal-box w-11/12 max-w-5xl">
                         <div className=''>
                             <form method='dialog' onSubmit={handleUpdateForm} className='col-span-2'>
+                                <center className='mb-8 text-xl font-serif'><h2>Update {name}</h2></center>
                                 <div className='grid grid-cols-3 gap-5 w-5/6 mx-auto'>
                                     <div className="form-control">
                                         <label className="label">
@@ -107,7 +108,7 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
 
                                             type="number"
                                             placeholder="Type here"
-                                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
@@ -117,7 +118,7 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
 
                                             type="number"
                                             placeholder="Type here"
-                                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
@@ -127,11 +128,11 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
 
                                             type="text"
                                             placeholder="Type here"
-                                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                                     </div>
                                 </div>
                                 <div className='modal-action'>
-                                    <button className='btn'><input className='' type="submit" value="Confirm" /></button>
+                                    <button className='btn btn-success'><input className='' type="submit" value="Confirm" /></button>
                                 </div>
 
                             </form>
@@ -144,7 +145,7 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
 
                             <form method="dialog">
                                 {/* if there is a button, it will close the modal */}
-                                <button className="btn">Close</button>
+                                <button className="btn btn-warning">Close</button>
                             </form>
                         </div>
                     </div>

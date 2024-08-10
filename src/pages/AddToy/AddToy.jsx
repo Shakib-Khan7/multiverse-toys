@@ -60,7 +60,7 @@ const AddToy = () => {
 
 
     return (
-        <div>
+        <div className='mb-10'>
            <div className='w-5/6 mx-auto '>
            <Marquee className='text-2xl font-mono text-slate-700  p-3 rounded-xl ' speed={150}>
                 Where Every Hero Finds a Home – Dive into the Ultimate Universe of Superhero Action Figures!
@@ -86,7 +86,7 @@ const AddToy = () => {
                         <input name='name'
                             type="text"
                             placeholder="Type here"
-                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -95,7 +95,7 @@ const AddToy = () => {
                         <input name='img'
                             type="text"
                             placeholder="Type here"
-                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                            className="input input-bordered input-primary w-full max-w-xs shadow-md"  required/>
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -104,7 +104,7 @@ const AddToy = () => {
                         <input name='seller_name'
                             type="text"
                             placeholder="Type here"
-                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -114,7 +114,7 @@ const AddToy = () => {
                             type="email"
                             placeholder="Type here"
                             className="input input-bordered input-primary w-full max-w-xs shadow-md"
-                            defaultValue={user.email} />
+                            defaultValue={user.email} required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -133,7 +133,7 @@ const AddToy = () => {
                         <input name='price'
                             type="number"
                             placeholder="Type here"
-                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -142,7 +142,7 @@ const AddToy = () => {
                         <input name='rating'
                             type="number"
                             placeholder="Type here"
-                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                     </div>
                     <div className="form-control">
                         <label className="label">
@@ -151,7 +151,7 @@ const AddToy = () => {
                         <input name='quantity'
                             type="number"
                             placeholder="Type here"
-                            className="input input-bordered input-primary w-full max-w-xs shadow-md" />
+                            className="input input-bordered input-primary w-full max-w-xs shadow-md" required />
                     </div>
 
                 </div>
@@ -162,11 +162,11 @@ const AddToy = () => {
                     <textarea name='description'
                         type="text"
                         placeholder="Type here"
-                        className="input input-bordered input-primary w-96 h-56 shadow-md">
+                        className="input input-bordered input-primary w-96 h-56 shadow-md" required>
 
                     </textarea>
                 </div>
-                <center><input className='btn btn-primary w-96 mt-10' type="submit" value="Add" /></center>
+                <div className='w-5/6 mx-auto'><input className='btn btn-primary w-96 mt-10' type="submit" value="Add" /></div>
             </form>
             </div>
 

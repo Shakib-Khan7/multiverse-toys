@@ -61,7 +61,7 @@ const Login = () => {
                                 <input className='btn btn-primary' type="submit" value="Login" />
                             </div>
                         </form>
-                        <p className='my-4 text-center'>New to Car Doctors? <Link className='text-orange-500 font-bold' to='/signup'>Sign Up</Link></p>
+                        <p className='my-4 text-center'>New to Multiverse Toys? <Link className='text-orange-500 font-bold ml-2' to='/signup'>Sign Up</Link></p>
                     </div>
                 </div>
             </div>
