@@ -6,7 +6,7 @@ const AllToys = () => {
 
 
     const allToys = useLoaderData()
-    const [searched,setSearched] = useState(allToys)
+    const [searched, setSearched] = useState(allToys)
 
     const handleSearch = event => {
         event.preventDefault()
@@ -14,15 +14,18 @@ const AllToys = () => {
         const search = form.search.value;
         console.log(search === '');
 
-        
-        
 
+
+
+        if(search === ''){
+            return setSearched([])
+        }
         fetch(`http://localhost:5000/searchToys?item=${search}`)
-        .then(res=>res.json())
-        .then(data=>{
-            
-            setSearched(data)
-        })
+            .then(res => res.json())
+            .then(data => {
+
+                setSearched(data)
+            })
 
 
     }
@@ -32,11 +35,18 @@ const AllToys = () => {
 
     return (
         <div>
-            <div>
-                <p>search</p>
+            <div className='mt-10 mb-10'>
+                
                 <form onSubmit={handleSearch}>
-                    <input type="text" placeholder='Search' name='search' required />
-                    <input className='btn ' type="submit" value="Search" />
+                    <div >
+                        <div className='w-1/2 mx-auto'>
+                        <center className='flex justify-center'>
+                        <input type="text" placeholder="Search Toy Name" className="input input-bordered border-r-0 w-96 rounded-none" name='search' />
+                        <input className='btn rounded rounded-r-lg rounded-l-none bg-violet-500' type="submit" value="Search" />
+                        </center>
+                        </div>
+                    </div>
+                    
                 </form>
             </div>
 
@@ -58,7 +68,7 @@ const AllToys = () => {
                 </thead>
                 <tbody>
                     {/* row 1 */}
-                    { searched.length !== 0 ?
+                    {searched.length !== 0 ?
                         // bookings.map(booking =>
                         //     <BookingRow key={booking._id}
                         //         booking={booking}

@@ -1,0 +1,35 @@
+[
+    {
+      "universe": "MCU",
+      "type": "character",
+      "name": "Iron Man",
+      "real_name": "Tony Stark",
+      "abilities": ["Genius-level intellect", "Powered armor suit", "Flight", "Energy repulsors"],
+      "affiliation": "Avengers",
+      "first_appearance": "Tales of Suspense #39",
+      "actor": "Robert Downey Jr.",
+      "img" : "https://i.ibb.co/jZR018p/marvel.jpg"
+    },
+    {
+      "universe": "DC",
+      "type": "item",
+      "name": "Batarang",
+      "description": "A boomerang-like weapon used by Batman.",
+      "material": "Steel alloy",
+      "creator": "Bruce Wayne",
+      "first_appearance": "Detective Comics #31",
+      "img" : "https://i.ibb.co/6ZG26v0/dc.jpg"
+    },
+    {
+      "universe": "Star Wars",
+      "type": "location",
+      "name": "Tatooine",
+      "description": "A desert planet in the Outer Rim Territories.",
+      "affiliation": "Hutt Cartel",
+      "inhabitants": ["Humans", "Jawas", "Tusken Raiders"],
+      "first_appearance": "Star Wars: Episode IV – A New Hope",
+      "img" : "https://i.ibb.co/LPMRdnz/sw.jpg"
+    }
+
+  ]
+  

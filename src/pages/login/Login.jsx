@@ -1,9 +1,11 @@
-import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 
 const Login = () => {
     const {login} = useContext(AuthContext)
+    const [error,setError] = useState('')
+    const navigate = useNavigate()
 
     const handleLogin = (event) =>{
         event.preventDefault()
@@ -15,9 +17,11 @@ const Login = () => {
         .then(result=>{
             const user = result.user
             console.log(user);
+            navigate('/')
         })
         .catch(err=>{
             console.log(err);
+            setError('Invalid email or password')
         })
     }
 
@@ -49,6 +53,9 @@ const Login = () => {
                                 </label>
                                 <input type="password" placeholder="password" className="input input-bordered" name='password' required />
                                 
+                            </div>
+                            <div>
+                                <p className='text-red-500 font-semibold text-center'>{error}</p>
                             </div>
                             <div className="form-control mt-6">
                                 <input className='btn btn-primary' type="submit" value="Login" />

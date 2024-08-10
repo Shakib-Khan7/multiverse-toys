@@ -1,10 +1,12 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
 
 const SignUp = () => {
 
     const {createUser} = useContext(AuthContext)
+
+    const [error,setError] = useState('')
 
 
     const handleSignUp = event =>{
@@ -15,6 +17,11 @@ const SignUp = () => {
         const email = form.email.value;
         const password = form.password.value;
 
+        if(password.length < 6){
+            setError('Password must be at least 6 characters')
+            return;
+        }
+
         createUser(email,password)
         .then(result=>{
             const user = result.user
@@ -23,7 +30,11 @@ const SignUp = () => {
             console.log(user);
         })
         .catch(err=>{
-            console.log(err);
+
+            console.log(err.message);
+            if(err.message === 'Firebase: Error (auth/email-already-in-use).'){
+                setError('Email already in use')
+            }
         })
     }
 
@@ -66,6 +77,9 @@ const SignUp = () => {
                                 </label>
                                 <input type="password" placeholder="password" className="input input-bordered" name='password' required />
                                 
+                            </div>
+                            <div>
+                                <p className='text-sm mt-2 text-red-500 font-semibold text-center'>{error}</p>
                             </div>
                             <div className="form-control mt-6">
                                 <input className='btn btn-primary' type="submit" value="Sign up" />
