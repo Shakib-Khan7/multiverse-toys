@@ -1,9 +1,12 @@
 import React, { useContext, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { FaGoogle } from 'react-icons/fa';
+import { data } from 'autoprefixer';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const {login} = useContext(AuthContext)
+    const {login,googleSignIn} = useContext(AuthContext)
     const [error,setError] = useState('')
     const navigate = useNavigate()
 
@@ -17,13 +20,88 @@ const Login = () => {
         .then(result=>{
             const user = result.user
             console.log(user);
-            navigate('/')
+            const loggedUser = {
+                email : user.email
+            }
+
+            fetch('https://multiverse-server.vercel.app/jwt',{
+                method : "POST",
+                headers :{
+                    "content-type" : 'application/json'
+                },
+                body : JSON.stringify(loggedUser)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log('jwt response',data);
+                localStorage.setItem('toy-access-token',data.token)
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Log in successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                navigate('/')
+            })
+            
         })
         .catch(err=>{
             console.log(err);
             setError('Invalid email or password')
         })
     }
+
+    // https://multiverse-server.vercel.app/
+
+    const handleGoogleSignIn = () =>{
+        googleSignIn()
+        .then(result=>{
+            const user = result.user
+            console.log(result.user);
+            const loggedUser = {
+                email : user.email
+            }
+
+            fetch('https://multiverse-server.vercel.app/jwt',{
+                method : "POST",
+                headers :{
+                    "content-type" : 'application/json'
+                },
+                body : JSON.stringify(loggedUser)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log('jwt response',data);
+                localStorage.setItem('toy-access-token',data.token)
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Log in successful",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                
+            })
+            .then(()=>{
+                navigate('/')
+            })
+
+
+
+
+
+
+            
+        })
+        .catch(err=>{
+            console.log(err.message);
+        })
+    }
+
+    
 
 
 
@@ -60,8 +138,14 @@ const Login = () => {
                             <div className="form-control mt-6">
                                 <input className='btn btn-primary' type="submit" value="Login" />
                             </div>
+                            <center>or</center>
+                            
                         </form>
-                        <p className='my-4 text-center'>New to Multiverse Toys? <Link className='text-orange-500 font-bold ml-2' to='/signup'>Sign Up</Link></p>
+                        <button onClick={handleGoogleSignIn} className="btn w-5/6 mx-auto btn-outline -mt-6 mb-6"> <span><FaGoogle></FaGoogle></span> Sign in with Google</button>
+                        <div>
+                        
+                        </div>
+                        <p className='mb-3 text-center font-normal'>New to Multiverse Toys? <Link className='text-orange-500 font-bold ml-2' to='/signup'>Sign Up</Link></p>
                     </div>
                 </div>
             </div>

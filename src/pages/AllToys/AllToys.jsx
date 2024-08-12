@@ -20,7 +20,7 @@ const AllToys = () => {
         if(search === ''){
             return setSearched([])
         }
-        fetch(`http://localhost:5000/searchToys?item=${search}`)
+        fetch(`https://multiverse-server.vercel.app/searchToys?item=${search}`)
             .then(res => res.json())
             .then(data => {
 

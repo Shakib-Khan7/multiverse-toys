@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import { SiMarvelapp } from 'react-icons/si';
 
 const Navbar = () => {
     const {user,logOut} = useContext(AuthContext)
@@ -12,6 +13,7 @@ const Navbar = () => {
         logOut()
         .then(result=>{
             console.log(result);
+            localStorage.removeItem('toy-access-token')
         })
         .catch(err=>console.log(err))
 
@@ -93,7 +95,10 @@ const Navbar = () => {
                             {options}
                         </ul>
                     </div>
-                    <Link to='/' className="btn btn-ghost text-xl italic">Multiverse <span className='text-red-600 italic'>Toys</span></Link>
+                    <Link to='/' className='flex items-center btn btn-ghost text-xl italic'>
+                    <SiMarvelapp className='w-8 h-6' />
+                    <div className="">Multiverse <span className='text-red-600 italic'>Toys</span></div>
+                    </Link>
                 </div>
                 <div className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
@@ -102,7 +107,7 @@ const Navbar = () => {
                 </div>
                 {user&& <div className="navbar-end mr-10">
                     <div className='w-11 rounded-full hover:cursor-pointer border  tooltip tooltip-bottom ' data-tip={user.displayName? user.displayName : user.email}>
-                        <img className='rounded-full' src="https://i.ibb.co/KxBgdF2/ironman.jpg" alt="" />
+                        <img className='rounded-full' src={user.photoURL ? user.photoURL : 'https://i.ibb.co/KxBgdF2/ironman.jpg'} alt="" />
                     </div>
                 </div>}
                 {!user&& <div className="navbar-end mr-10">

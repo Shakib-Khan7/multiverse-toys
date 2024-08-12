@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Button } from '@mui/material';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
@@ -18,7 +19,7 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
 
 
 
-        fetch(`http://localhost:5000/update/${id}`, {
+        fetch(`https://multiverse-server.vercel.app/update/${id}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"
@@ -41,8 +42,16 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
 
 
                     const newToysList = [updated, ...remaining]
+                   
 
                     setMyToys(newToysList)
+                    Swal.fire({
+                        title: "Updated Successfully",
+                        
+                        icon: "success"
+                      });
+                    
+                    
                     
 
 
@@ -89,7 +98,7 @@ const MyToysRow = ({ mytoy, handleDelete, mytoys, setMyToys }) => {
             <td>{seller_name}</td>
             <td>{name}</td>
             <td>{sub_category}</td>
-            <td>{price}</td>
+            <td>{price}$</td>
             <td>{available_quantity}</td>
             <td>
                 {/* You can open the modal using document.getElementById('ID').showModal() method */}

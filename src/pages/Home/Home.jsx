@@ -23,7 +23,7 @@ const Home = () => {
     
 
     const handleMcu = () => {
-        fetch(`http://localhost:5000/toys?sub_category=MCU`)
+        fetch(`https://multiverse-server.vercel.app/toys?sub_category=MCU`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -31,7 +31,7 @@ const Home = () => {
             })
     }
     const handleDC = () => {
-        fetch(`http://localhost:5000/toys?sub_category=DC`)
+        fetch(`https://multiverse-server.vercel.app/toys?sub_category=DC`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)
@@ -39,7 +39,7 @@ const Home = () => {
             })
     }
     const handleStarWars = () => {
-        fetch(`http://localhost:5000/toys?sub_category=Star+Wars`)
+        fetch(`https://multiverse-server.vercel.app/toys?sub_category=Star+Wars`)
             .then(res => res.json())
             .then(data => {
                 setAllToys(data)

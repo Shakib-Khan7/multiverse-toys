@@ -1,17 +1,21 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import MyToysRow from '../../components/MyToysRow';
+import Swal from 'sweetalert2';
 
 const MyToys = () => {
     const {user} = useContext(AuthContext)
 
     const [mytoys,setMyToys] = useState([])
 
-    const url = `http://localhost:5000/myToys?email=${user?.email}`
+    const url = `https://multiverse-server.vercel.app/myToys?email=${user?.email}`
 
     useEffect(()=>{
         fetch(url,{
-            method : "GET"
+            method : "GET",
+            headers : {
+                authorization : `Bearer ${localStorage.getItem('toy-access-token')}`
+            }
 
         })
         .then(res=>res.json())
@@ -23,19 +27,39 @@ const MyToys = () => {
 
 
     const handleDelete = id =>{
-        const proceed = confirm('Are you sure you want to delete?')
-        if(proceed){
-            fetch(`http://localhost:5000/deleteToy/${id}`,{
-                method : 'DELETE'
-            })
-            .then(res=>res.json())
-            .then(data=>{
-                console.log(data);
-                const remaining = mytoys.filter(mytoy=>mytoy._id !== id)
-                setMyToys(remaining)
-            })
-        }
+        
+        Swal.fire({
+            title: "Are you sure you want to delete?",
+            
+            showCancelButton: true,
+            cancelButtonText : 'Cancel',
+            cancelButtonColor : "red",
+            confirmButtonText: "Yes",
+            
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                fetch(`https://multiverse-server.vercel.app/deleteToy/${id}`,{
+                    method : 'DELETE'
+                })
+                .then(res=>res.json())
+                .then(data=>{
+                    console.log(data);
+                    const remaining = mytoys.filter(mytoy=>mytoy._id !== id)
+                    setMyToys(remaining)
+                    
+                })
 
+
+
+
+
+              Swal.fire("Deleted Successfully");
+            } 
+          });
+
+
+       
         
 
     }

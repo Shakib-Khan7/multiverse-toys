@@ -17,7 +17,7 @@ const router = createBrowserRouter([
             {
                 path : '/',
                 element : <Home></Home>,
-                loader : () => fetch(`http://localhost:5000/toys?limit=10`)
+                loader : () => fetch(`https://multiverse-server.vercel.app/toys?limit=10`)
             },
             {
                 path : '/login',
@@ -34,7 +34,7 @@ const router = createBrowserRouter([
             {
                 path : '/allToys',
                 element : <AllToys></AllToys>,
-                loader : () =>fetch(`http://localhost:5000/toys`)
+                loader : () =>fetch(`https://multiverse-server.vercel.app/toys`)
             },
             {
                 path : '/myToys',

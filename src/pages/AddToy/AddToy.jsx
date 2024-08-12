@@ -2,6 +2,7 @@ import { Box, TextField } from '@mui/material';
 import React, { useContext, useEffect, useRef, useState } from 'react';
 import Marquee from 'react-fast-marquee';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const AddToy = () => {
     
@@ -39,7 +40,7 @@ const AddToy = () => {
             name,img,seller_name,seller_email,sub_category,price,rating,available_quantity,detail_description
         }
 
-        fetch('http://localhost:5000/addToy',{
+        fetch('https://multiverse-server.vercel.app/addToy',{
             method : "POST",
             headers : {
                 "content-type" : "application/json"
@@ -49,7 +50,14 @@ const AddToy = () => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data);
-            alert('added')
+            form.reset()
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "Toy added",
+                showConfirmButton: false,
+                timer: 1500
+              });
         })
         
     }
