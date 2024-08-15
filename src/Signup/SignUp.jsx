@@ -1,12 +1,15 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const SignUp = () => {
 
     const {createUser} = useContext(AuthContext)
 
     const [error,setError] = useState('')
+
+    const navigate = useNavigate()
 
 
     const handleSignUp = event =>{
@@ -27,7 +30,35 @@ const SignUp = () => {
             const user = result.user
             user.photoURL = img;
             user.displayName = name
+            const loggedUser = {
+                email : user.email
+            }
             console.log(user);
+            fetch('https://multiverse-server.vercel.app/jwt',{
+                method : "POST",
+                headers :{
+                    "content-type" : 'application/json'
+                },
+                body : JSON.stringify(loggedUser)
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log('jwt response',data);
+                localStorage.setItem('toy-access-token',data.token)
+
+                Swal.fire({
+                    position: "center",
+                    icon: "success",
+                    title: "Sign up successful & logged in",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+                
+            })
+            .then(()=>{
+                navigate('/')
+            })
+
         })
         .catch(err=>{
 

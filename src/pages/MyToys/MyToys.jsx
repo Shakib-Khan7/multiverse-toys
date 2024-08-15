@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../AuthProvider/AuthProvider';
 import MyToysRow from '../../components/MyToysRow';
 import Swal from 'sweetalert2';
+import { useNavigate } from 'react-router-dom';
 
 const MyToys = () => {
     const {user} = useContext(AuthContext)
 
     const [mytoys,setMyToys] = useState([])
+    const navigate = useNavigate()
 
     const url = `https://multiverse-server.vercel.app/myToys?email=${user?.email}`
 
@@ -22,6 +24,16 @@ const MyToys = () => {
         .then(data=>{
             console.log(data);
             setMyToys(data)
+        })
+        .catch(err=>{
+            console.log(err.message);
+            Swal.fire({
+                title: "Please log out & then log in again",
+                
+                
+              });
+              navigate('/')
+            
         })
     },[url])
 
